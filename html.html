@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menu Slidebar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <label>
+        <input type="checkbox" id="toggle-sidebar"> <!-- เพื่อเปิดและปิดslidebar -->
+        <div class="toggle">
+            <span class="top_line common"></span>
+            <span class="middle_line common"></span>
+            <span class="buttom_line common"></span>
+        </div>
+        <div class="slide">
+            <h1>MENU</h1>
+            <ul>
+                <li><a href="#"><i class="fas fa-tv"></i> <span>Dashboard</span></a></li>
+                <li id="Profile"><a href="#"><i class="far fa-user"></i> <span>Profile</span></a></li>
+                <li><a href="#"><i class="fab fa-gripfire"></i> <span>Trending</span></a></li>
+                <li><a href="#"><i class="far fa-comment"></i> <span>Message</span></a></li>
+                <li><a href="#"><i class="far fa-folder"></i> <span>File</span></a></li>
+                <li><a href="#"><i class="far fa-address-book"></i> <span>Portfolio</span></a></li>
+                <li><a href="#"><i class="far fa-heart"></i> <span>Saved</span></a></li>
+                <li><a href="#"><i class="fas fa-cogs"></i> <span>Setting</span></a></li>
+            </ul>
+        </div>
+    </label>
+    <script>
+        function openPage() {
+            window.location.href = 'file:///C:/wedsite/html(wed).html'; // แทนที่ 'yourpage.html' ด้วย URL หรือชื่อไฟล์ที่ต้องการเปิด
+        }
+
+        // เพิ่ม event listener ให้กับปุ่ม
+        document.getElementById('Profile').addEventListener('click', openPage);
+    </script>
+
+</body>
+</html>
