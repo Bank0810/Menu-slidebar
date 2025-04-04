@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #418641;
+}
+
+.slide {
+  height: 100%;
+  width: 60px; /* ขนาดแสดงเฉพาะไอคอนเมื่อ Sidebar ปิด */
+  position: absolute;
+  background-color: #72a872;
+  transition: 0.5s ease;
+  transform: translateX(0); /* แสดง Sidebar เมื่อเริ่มต้น */
+}
+
+h1 {
+  color: #127112;
+  font-weight: 800;
+  text-align: right;
+  padding: 10px 0;
+  padding-right: 30px;
+  pointer-events: none;
+  opacity: 0; /* ซ่อนข้อความ "MENU" เมื่อ Sidebar ปิด */
+  transition: opacity 0.5s ease;
+}
+
+ul li {
+  list-style: none;
+}
+
+ul li a {
+  color: #287528;
+  font-weight: 500;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* ไอคอนอยู่กึ่งกลางเมื่อ Sidebar ปิด */
+  text-transform: capitalize;
+  text-decoration: none;
+  transition: 0.2s ease-out;
+}
+
+ul li a i {
+  width: 40px;
+  text-align: center;
+  font-size: 24px;
+}
+
+ul li a span {
+  display: none; /* ซ่อนข้อความเมื่อ Sidebar ปิด */
+  transition: opacity 0.5s ease; /* เปลี่ยนการแสดงผลให้สวยงาม */
+}
+
+input {
+  display: none;
+  visibility: hidden;
+  appearance: none;
+}
+
+.toggle {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  top: 20px;
+  left: 15px;
+  cursor: pointer;
+  border-radius: 2px;
+  z-index: 1;
+  background-color: #88c388;
+  box-shadow: 0 0 10px rgb(0, 0, 0, 0.3);
+}
+
+.toggle .common {
+  position: absolute;
+  height: 2px;
+  width: 20px;
+  background-color: #1d7a1d;
+  border-radius: 50px;
+  transition: 0.3s ease;
+}
+
+.toggle .top_line {
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.toggle .middle_line {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.toggle .buttom_line {
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+input:checked ~ .toggle .top_line {
+  left: 2px;
+  top: 14px;
+  width: 25px;
+  transform: rotate(45deg);
+}
+
+input:checked ~ .toggle .buttom_line {
+  left: 2px;
+  top: 14px;
+  width: 25px;
+  transform: rotate(-45deg);
+}
+
+input:checked ~ .toggle .middle_line {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+input:checked ~ .slide {
+  width: 180px; /* ขยาย Sidebar เมื่อเปิด */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+input:checked ~ .slide h1 {
+  opacity: 1; /* แสดงข้อความ "MENU" เมื่อ Sidebar เปิด */
+}
+
+input:checked ~ .slide ul li a span {
+  display: inline; /* แสดงข้อความเมนูเมื่อ Sidebar เปิด */
+}
+
+ul li a {
+  justify-content: flex-start; /* จัดข้อความและไอคอนให้ชิดซ้ายเมื่อเปิด Sidebar */
+}
+
+/* Media Query สำหรับหน้าจอเล็ก */
+@media (max-width: 768px) {
+  .slide {
+    width: 60px; /* ขนาด Sidebar เมื่อหน้าจอเล็ก */
+    transform: translateX(0); /* แสดง Sidebar เมื่อหน้าจอเล็ก */
+  }
+
+  input:checked ~ .slide {
+    width: 150px; /* กำหนดความกว้างของ Sidebar เมื่อเปิด */
+  }
+}
